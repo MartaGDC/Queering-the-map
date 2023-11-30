@@ -50,6 +50,16 @@ def get_df(data, worldDB):
         except:
             country.append(float('nan'))
     
+    codes = []
+    for index, rows in df.iterrows():
+        try:
+            codes.append(worldDB.find_one({"geometry": {"$geoIntersects": {"$geometry": {'type': 'Point', 'coordinates': df["positions"][index]}}}})["properties"]["iso_a3"])
+        except:
+            codes.append(float('nan'))
+    
+    df["Country Name"] = country
+    df["Country Code"] = codes
+        
     return df
 
 

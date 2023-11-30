@@ -41,9 +41,9 @@ Extract and analyze the most common keywords or topics mentioned in the comments
 
 
 FUENTES ADICIONALES: 
-https://www.statista.com/topics/8579/lgbtq-worldwide/#editorsPicks
-https://data.worldbank.org/indicator/PV.PER.RNK.UPPER
-https://data.worldbank.org/indicator/PV.EST
+https://ourworldindata.org/lgbt-rights
+https://data.worldbank.org/
+
 
 - Censos y Estadísticas Gubernamentales:
 Los censos nacionales o estadísticas demográficas pueden proporcionar información demográfica agregada a nivel de región o ciudad.
