@@ -2,6 +2,8 @@ import json
 import pandas as pd
 import geopandas as gpd
 from pymongo import MongoClient
+from langdetect import detect
+from googletrans import Translator
 
 
 def create_mongoDB(database):
@@ -56,17 +58,31 @@ def get_df(data, worldDB):
             codes.append(worldDB.find_one({"geometry": {"$geoIntersects": {"$geometry": {'type': 'Point', 'coordinates': df["positions"][index]}}}})["properties"]["iso_a3"])
         except:
             codes.append(float('nan'))
+            
+    new_comment = []
+    for index, rows in df.iterrows():
+        try:
+            if rows["language"] in ["fr", "es"]:
+                translator = Translator()
+                translation = translator.translate(rows["comment"], dest="en")
+                new_comment.append(translation.text)
+            else:
+                new_comment.append(rows["comment"])
+        except:
+            new_comment.append(rows["comment"])
     
     df["Country Name"] = country
     df["Country Code"] = codes
-        
+    df["new_comment"] = new_comment
+    df.drop(columns=["lat", "long", "positions"], inplace=True)
+    
     return df
 
 
 with open("../data/data_comments.json", "r") as file:
     data = json.load(file)
+    
 worldDB = create_mongoDB("Ironhack")
-
 df = get_df(data, worldDB)
 df.to_csv("../data/web")
 
