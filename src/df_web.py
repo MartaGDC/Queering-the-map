@@ -59,22 +59,9 @@ def get_df(data, worldDB):
         except:
             codes.append(float('nan'))
             
-    new_comment = []
-    for index, rows in df.iterrows():
-        try:
-            if rows["language"] != "en":
-                translator = Translator()
-                translation = translator.translate(rows["comment"], dest="en")
-                new_comment.append(translation.text)
-            else:
-                new_comment.append(rows["comment"])
-        except:
-            new_comment.append(rows["comment"])
-    
     df["Country Name"] = country
     df["Country Code"] = codes
-    df["new_comment"] = new_comment
-    df.drop(columns=["lat", "long", "positions"], inplace=True)
+    df.drop(columns="positions", inplace=True)
     
     return df
 
@@ -85,12 +72,3 @@ with open("../data/data_comments.json", "r") as file:
 worldDB = create_mongoDB("Ironhack")
 df = get_df(data, worldDB)
 df.to_csv("../data/web")
-
-
-    
-    
-    
-
-
-
-
