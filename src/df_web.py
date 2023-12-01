@@ -62,7 +62,7 @@ def get_df(data, worldDB):
     new_comment = []
     for index, rows in df.iterrows():
         try:
-            if rows["language"] in ["fr", "es"]:
+            if rows["language"] != "en":
                 translator = Translator()
                 translation = translator.translate(rows["comment"], dest="en")
                 new_comment.append(translation.text)
