@@ -18,11 +18,11 @@ def sentiment (x):
     
 def type_sentiment(x):
     if x < 0:
-        return "neg"
-    elif x > 0:
-        return "pos"
+        return 1
+    elif x == 0:
+        return 2
     else:
-        return "neu"
+        return 3
 
 def number_char(x):
     return len(x)

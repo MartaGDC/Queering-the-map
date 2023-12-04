@@ -175,7 +175,7 @@ column_names = {
     "feature_7": "mean_ed_exp",
     "feature_8": "mean_literacy",
     "feature_9": "mean_ARV_coverage",
-    "feature_10": "mean_healt_exp",
+    "feature_10": "mean_health_exp",
     "feature_11": "mean_UHC_coverage",
 }
 
