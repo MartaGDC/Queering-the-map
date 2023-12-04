@@ -54,6 +54,47 @@ def get_total_csv(path1, path2, name):
     df.rename(columns={"language_langid": "language", "Country Name_x": "country_name", "Country Code": "country_code",
                    "Region": "region", "IncomeGroup": "income_group"}, inplace = True)
     
+    df_copy = df[["lat", "long", "country_code"]]
+    countries = list(set(df["country_code"])) 
+    for i in countries:
+        try:
+            km = KMeans(n_clusters=6, n_init=10)
+            km.fit(df_copy[["lat", "long"]][df_copy["country_code"]==i])
+            cluster_pred = km.predict(df_copy[["lat", "long"]])
+            df_copy[i] = cluster_pred
+        except:
+            try:
+                km = KMeans(n_clusters=5, n_init=10)
+                km.fit(df_copy[["lat", "long"]][df_copy["country_code"]==i])
+                cluster_pred = km.predict(df_copy[["lat", "long"]])
+                df_copy[i] = cluster_pred
+            except:
+                try:
+                    km = KMeans(n_clusters=4, n_init=10)
+                    km.fit(df_copy[["lat", "long"]][df_copy["country_code"]==i])
+                    cluster_pred = km.predict(df_copy[["lat", "long"]])
+                    df_copy[i] = cluster_pred
+                except:
+                    try:
+                        km = KMeans(n_clusters=3, n_init=10)
+                        km.fit(df_copy[["lat", "long"]][df_copy["country_code"]==i])
+                        cluster_pred = km.predict(df_copy[["lat", "long"]])
+                        df_copy[i] = cluster_pred
+                    except:
+                        try:
+                            km = KMeans(n_clusters=2, n_init=10)
+                            km.fit(df_copy[["lat", "long"]][df_copy["country_code"]==i])
+                            cluster_pred = km.predict(df_copy[["lat", "long"]])
+                            df_copy[i] = cluster_pred
+                        except:
+                            df_copy[i] = 0
+    for i in countries:
+        for j in df_copy.columns:
+            if i == j:
+                df_copy.loc[df_copy[df_copy["country_code"]==i].index, "cluster"] = df_copy[i]   
+    
+    df["cluster"] = df_copy["cluster"]
+        
     df.to_csv(f"../data/{name}.csv") # "total_df"
 
 
