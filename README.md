@@ -15,7 +15,9 @@ The purpose of this project is to give some insights in the process of answering
     - How is it by country?
 - How many characters do people use and what's the emotionality of the comments found in the web?
     - How are they by country?
+- How many communities can we find within a country?
 - How do they relate to the countries' characteristics?
 - What are the variables that affect the most to the metrics of the comments found in the web?
+
 
 
