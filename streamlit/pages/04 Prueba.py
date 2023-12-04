@@ -2,26 +2,65 @@ import streamlit as st
 from streamlit_folium import folium_static
 import folium
 import pandas as pd
+import numpy as np
+from wordcloud import WordCloud
+
+st.set_page_config(
+     page_title="Prueba",
+     layout="wide"
+     )
 
 # Datos de ejemplo: Puedes reemplazar esto con tus propios datos
-data = {'Country': ['USA', 'Canada', 'Mexico', 'Brazil', 'Argentina'],
-        'Latitude': [37.7749, 56.1304, 23.6345, -14.2350, -38.4161],
-        'Longitude': [-122.4194, -106.3468, -102.5528, -51.9253, -63.6167]}
-
-df = pd.DataFrame(data)
-
+df = pd.read_csv("../data/total_df.csv", index_col="Unnamed: 0")
+data = df.groupby("country_name").agg({"lat": "median", "long":"median"}).reset_index()
 # Streamlit
 st.title('Mapa interactivo con botones por país')
 
-# Crear un mapa folium
-m = folium.Map(location=[0, 0], zoom_start=2)
+map = folium.Map(location=[0, 0], zoom_start=2, width="100%")
 
-# Agregar botones por país
-for i, row in df.iterrows():
-    folium.Marker([row['Latitude'], row['Longitude']],
-                  popup=row['Country'],
-                  tooltip=row['Country'],
-                  icon=folium.Icon(color='blue')).add_to(m)
+def generate_wordcloud(comments):
+    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
+    st.image(wordcloud.to_image())
 
-# Mostrar el mapa interactivo en Streamlit
-folium_static(m)
+def on_marker_click(e):
+    country_name = e.target.options.tooltip
+    if country_name == None:
+        lines = df['comment']
+    else:
+        lines = df[data['country_name'] == country_name]['comment']
+    text = " ".join(lines)
+    generate_wordcloud(text)
+
+
+
+
+
+# Manejar el evento en Streamlit
+if st.session_state.marker_button_clicked:
+    st.write("¡Se hizo clic en el marcador!")
+    
+    
+    
+
+
+
+# Agregar el código JavaScript al mapa
+map.get_root().script.add_child(folium.Element(js_code))
+
+
+for i, row in data.iterrows():
+    folium.Marker([row['lat'], row['long']],
+                  tooltip=row['country_name'],
+                  icon=folium.Icon(color='blue'),
+                  popup="<a href='#' id='marker_button'></a>").add_to(map)
+
+folium_static(map)
+
+# Agregar un manejador de eventos en JavaScript para el clic en el enlace
+st.script("""
+document.getElementById('marker_button').addEventListener('click', function() {
+    Streamlit.setComponentValue('marker_button_clicked', true);
+});
+""")
+
+
