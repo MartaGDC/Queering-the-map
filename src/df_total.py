@@ -4,6 +4,7 @@ import langid
 import nltk
 nltk.downloader.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from sklearn.cluster import KMeans
 
 
 def detect_language(text):
@@ -34,7 +35,7 @@ def get_emotionality(df):
     return emotionality
 
 def get_total_csv(path1, path2, name):
-    discourse = pd.read_csv(path1, index_col="Unnamed: 0") # "../data/web.csv"
+    discourse = pd.read_csv(path1, index_col="Unnamed: 0")
     discourse["language_langid"] = discourse["comment"].apply(detect_language)
     discourse["sentiment"] = discourse["comment"].apply(sentiment)
     discourse["type_sentiment"] = discourse["sentiment"].apply(type_sentiment)
@@ -44,7 +45,7 @@ def get_total_csv(path1, path2, name):
     discourse["emotionality"] = get_emotionality(discourse)
     discourse.loc[discourse[discourse["Country Code"]=="-99"].index, "Country Code"] = "XXK"
     
-    features = pd.read_csv(path2, index_col="Unnamed: 0") # "../data/charactCountry/country_features.csv"
+    features = pd.read_csv(path2, index_col="Unnamed: 0")
     df = discourse.merge(features, how="left", on= "Country Code")
     
     df = df[["id_web", "lat", "long", "comment", "language_langid", "sentiment", "type_sentiment", "characters", "emotionality", 
@@ -95,7 +96,4 @@ def get_total_csv(path1, path2, name):
     
     df["cluster"] = df_copy["cluster"]
         
-    df.to_csv(f"../data/{name}.csv") # "total_df"
-
-
-get_total_csv("../data/web.csv", "../data/charactCountry/country_features.csv", "total_df")
+    df.to_csv(f"data/{name}.csv")

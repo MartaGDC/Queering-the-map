@@ -21,6 +21,21 @@ The purpose of this project is to give some insights in the process of answering
 
 ## Characteristics of the discourse
 ![Alt text](images/top_countries_use.png)
+
+
+| language | count |
+|----------|-------|
+en | 142688
+fr | 1696
+es | 1303
+de | 427
+pt | 317
+it | 295
+nl | 274
+et | 272
+da | 217
+ru | 202
+
 ![Alt text](images/lang_english.png)
 ![Alt text](images/Sentiment.png)
 ![Alt text](images/Sentiment_no_neutral.png)

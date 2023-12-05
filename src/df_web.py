@@ -11,8 +11,8 @@ def create_mongoDB(database):
     Creates a mongoDB with all the countries' polygons if it doesn't exist
     '''
     geo = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))   # GeoPandas
-    geo.to_file("../data/world.geojson", driver='GeoJSON')              # Geopandas saved to geojson
-    with open("../data/world.geojson") as x:
+    geo.to_file("data/world.geojson", driver='GeoJSON')              # Geopandas saved to geojson
+    with open("data/world.geojson") as x:
         json_countries = json.load(x)                                   # Read the geojson
     json_countries = [i for i in json_countries["features"]]            # Get a clean dictionary to be able to create a geojson
     
@@ -28,7 +28,7 @@ def create_mongoDB(database):
     return worldDB                                                      # return the clean geojson
 
 
-def get_df(data, worldDB):
+def get_df(data, worldDB, name):
     '''
     Latitude, longitude, comment and id_web from the data input; country from the geojson input.
     '''
@@ -62,13 +62,4 @@ def get_df(data, worldDB):
     df["Country Name"] = country
     df["Country Code"] = codes
     df.drop(columns="positions", inplace=True)
-    
-    return df
-
-
-with open("../data/data_comments.json", "r") as file:
-    data = json.load(file)
-    
-worldDB = create_mongoDB("Ironhack")
-df = get_df(data, worldDB)
-df.to_csv("../data/web")
+    df.to_csv(f"data/{name}.csv")

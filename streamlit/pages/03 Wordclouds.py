@@ -8,7 +8,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
 nltk.download('wordnet')
 nltk.download('vader_lexicon')
-import src.words as words;
+import src.words_queries as words;
 
 df = pd.read_csv("data/total_df.csv")
 

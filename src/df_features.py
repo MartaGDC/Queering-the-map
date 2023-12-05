@@ -35,8 +35,10 @@ Possible explicative variables for the discourse in the queer community:
     - Hate crimes based on sexual orientation or gender identity are an aggravating circumstance, 2019 available here (https://ourworldindata.org/lgbt-rights)
 '''
 
-
 def get_WB_features(paths, df, names, income, j = 0):
+    '''
+    Tables from the World Bank.
+    '''
     for i in paths:       
         j += 1
         feature = pd.read_csv(i, skiprows=4)
@@ -56,13 +58,19 @@ def get_WB_features(paths, df, names, income, j = 0):
     return df_merged
 
 def get_income(path):
+    '''
+    Metadata table from the World Bank
+    '''
     country_income = pd.read_csv(path)
     country_income.drop(columns=["SpecialNotes", "Unnamed: 5"], inplace = True)
     country_income.rename(columns={"TableName": "Country Name"}, inplace=True)
     return country_income
 
 def get_rights(path, df):
-    rights = pd.read_csv(path) # "../data/charactCountry/equality/lgbt_rights_index.csv"
+    '''
+    Table of rights index from https://ourworldindata.org/lgbt-rights 
+    '''
+    rights = pd.read_csv(path) # "data/charactCountry/equality/lgbt_rights_index.csv"
     rights = rights.pivot(index=["Entity", "Code"], columns="Year", values="LGBT+ Policy Index")
     rights.columns.name = None
     rights.reset_index(inplace=True)
@@ -80,7 +88,10 @@ def get_rights(path, df):
     return df1
 
 def get_sex_illegal(path, df):
-    sex = pd.read_csv(path) # "../data/charactCountry/equality/sex_illegal.csv"
+    '''
+    Table of legality of same-sex sexual acts from https://ourworldindata.org/lgbt-rights 
+    '''
+    sex = pd.read_csv(path) # "data/charactCountry/equality/sex_illegal.csv"
     sex = sex.pivot(index=["Entity", "Code"], columns="Year", values="Same-sex sexual acts illegal")
     sex.columns.name = None
     sex.reset_index(inplace=True)
@@ -98,7 +109,10 @@ def get_sex_illegal(path, df):
     return df1
 
 def get_censor(path, df):
-    censor = pd.read_csv(path) # "../data/charactCountry/equality/censorship.csv"
+    '''
+    Table of censorship of LGBT issues from https://ourworldindata.org/lgbt-rights 
+    '''
+    censor = pd.read_csv(path) # "data/charactCountry/equality/censorship.csv"
     censor.rename(columns={"Censorship of LGBT issues (current)": "censor"}, inplace=True)
     censor.rename(columns={"Code": "Country Code"}, inplace=True)
     censor.loc[censor[censor["Entity"]=="Faeroe Islands"].index, "Country Code"] = "FRO"
@@ -108,7 +122,10 @@ def get_censor(path, df):
     return df1
 
 def get_trans_marker(path, df):
-    trans = pd.read_csv(path) # "../data/charactCountry/equality/transitions.csv"
+    '''
+    Table of gender marker change from https://ourworldindata.org/lgbt-rights 
+    '''
+    trans = pd.read_csv(path) # "data/charactCountry/equality/transitions.csv"
     trans.rename(columns={"Right to change legal gender (current)": "transition"}, inplace=True)
     trans.rename(columns={"Code": "Country Code"}, inplace=True)
     trans.drop(columns="Year", inplace=True)
@@ -119,7 +136,10 @@ def get_trans_marker(path, df):
     return df1
 
 def get_hate_protection(path, df):
-    hate = pd.read_csv(path) # "../data/charactCountry/equality/hate_protection.csv"
+    '''
+    Table of sexual orientation or gender identity as an aggravating circunstance from https://ourworldindata.org/lgbt-rights 
+    '''
+    hate = pd.read_csv(path) # "data/charactCountry/equality/hate_protection.csv"
     hate = hate.pivot(index=["Entity", "Code"], columns="Year", values="Hate crime protections")
     hate.columns.name = None
     hate.reset_index(inplace=True)
@@ -154,17 +174,17 @@ def preimpute_features(df):
     return df
 
 def get_features_csv(df, name):
-    df.to_csv(f"../data/charactCountry/{name}.csv")
+    df.to_csv(f"data/charactCountry/{name}.csv")
     
 
 
-list_paths_WB = ["../data/charactCountry/stability/global_bank_rank.csv", "../data/charactCountry/equality/rule_law.csv",
-                 "../data/charactCountry/equality/female_seats.csv", "../data/charactCountry/equality/voice.csv",
-                 "../data/charactCountry/gdp/global_bank_gdp.csv",
-                 "../data/charactCountry/education/global_bank_children_out.csv",
-                 "../data/charactCountry/education/global_bank_edExpenditure.csv", 
-                 "../data/charactCountry/education/literacy.csv", "../data/charactCountry/health/ARV_coverage.csv",
-                 "../data/charactCountry/health/health_exp.csv", "../data/charactCountry/health/UHC_coverage.csv"]
+list_paths_WB = ["data/charactCountry/stability/global_bank_rank.csv", "data/charactCountry/equality/rule_law.csv",
+                 "data/charactCountry/equality/female_seats.csv", "data/charactCountry/equality/voice.csv",
+                 "data/charactCountry/gdp/global_bank_gdp.csv",
+                 "data/charactCountry/education/global_bank_children_out.csv",
+                 "data/charactCountry/education/global_bank_edExpenditure.csv", 
+                 "data/charactCountry/education/literacy.csv", "data/charactCountry/health/ARV_coverage.csv",
+                 "data/charactCountry/health/health_exp.csv", "data/charactCountry/health/UHC_coverage.csv"]
 column_names = {
     "feature_1": "mean_stability",
     "feature_2": "mean_law",
@@ -179,12 +199,12 @@ column_names = {
     "feature_11": "mean_UHC_coverage",
 }
 
-country_income = get_income("../data/charactCountry/stability/Metadata_Country.csv")
+country_income = get_income("data/charactCountry/stability/Metadata_Country.csv")
 df = get_WB_features(list_paths_WB, pd.DataFrame(), column_names, country_income)
-df1 = get_rights("../data/charactCountry/equality/lgbt_rights_index.csv", df)
-df2 = get_sex_illegal("../data/charactCountry/equality/sex_illegal.csv", df1)
-df3 = get_censor("../data/charactCountry/equality/censorship.csv", df2)
-df4 = get_trans_marker("../data/charactCountry/equality/transitions.csv", df3)
-df5 = get_hate_protection("../data/charactCountry/equality/hate_protection.csv", df4)
+df1 = get_rights("data/charactCountry/equality/lgbt_rights_index.csv", df)
+df2 = get_sex_illegal("data/charactCountry/equality/sex_illegal.csv", df1)
+df3 = get_censor("data/charactCountry/equality/censorship.csv", df2)
+df4 = get_trans_marker("data/charactCountry/equality/transitions.csv", df3)
+df5 = get_hate_protection("data/charactCountry/equality/hate_protection.csv", df4)
 df5 = preimpute_features(df5)
 get_features_csv(df5, "country_features")

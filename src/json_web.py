@@ -1,10 +1,7 @@
 import msgpack
 import requests
-import json
 
 data = []
-i = 1
-url = "https://www.queeringthemap.com/moments.msgpack"
 
 def get_jsons(i, url):
     extension = f"?page={i}"
@@ -26,10 +23,3 @@ def get_jsons(i, url):
     except:
         pass
     return data
-
-
-data = get_jsons(i, url)
-
-
-with open("../data/data_comments.json", "w") as file:
-    json.dump(data, file)
