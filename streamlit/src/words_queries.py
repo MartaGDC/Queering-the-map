@@ -9,7 +9,7 @@ import pymysql
 import sqlalchemy as alch
 from dotenv import load_dotenv
 import os
-
+import random
 
 
 df = pd.read_csv("data/total_df.csv", index_col="Unnamed: 0")
@@ -54,14 +54,18 @@ def query1(input_country, input_words):
     texts = " ".join(df_query["comment"])
     words = texts.split()
     words.count(input_words)
-    string_explain = f"There are a total of {df_query.shape[0]} comment in {input_country} with the word '{input_words}'. This words is repeated {words.count(input_words)} times."
-    if df_query.shape[0] > 250:
-        string_comment = "That's a lot. I know that you are very curious, so if you want to see any comments, try with another country or another words :wink:"
-    else:
-        string_comment = ""
+    string_explain = f"There are a total of {df_query.shape[0]} comment in {input_country} with the word '{input_words}'.This words is repeated {sum(df_query.comment.str.count(fr'\b{input_words}\b'))} times."
+    string_comment=""
+    try:
+        indexes = random.choices(range(df_query.shape[0]), k=10)
+        for i in indexes:
+            string_comment += f"\n- {df_query['comment'][i]}\n"
+        length = 10
+    except:
         for i in df_query.index:
-            string_comment += f"{i+1}. {df_query['comment'][i]}\n"
-    return string_explain, string_comment
+            string_comment += f"\n- {df_query['comment'][i]}\n"
+        length = df_query.shape[0]
+    return string_explain, string_comment, length
 
 def query2(input_minmax, input_sentemo, imputCountry):
     if input_minmax == "Minimum":
