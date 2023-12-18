@@ -2,8 +2,6 @@ import json
 import pandas as pd
 import geopandas as gpd
 from pymongo import MongoClient
-from langdetect import detect
-from googletrans import Translator
 
 
 def create_mongoDB(database):
