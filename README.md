@@ -21,11 +21,23 @@ The purpose of this project is to give some insights in the process of answering
 - How do they relate to the countries' characteristics?
 - What are the variables that affect the most to the metrics of the comments found in the web?
 
-## Characteristics of the discourse
-![Alt text](images/top_countries_use.png)
+## Process:
+- Description:
+    - Web:
+        - Countries
+        - Languages
+        - Clusters
+    - Discourse:
+        - Words
+        - Sentiment
+        - Length
+        - Emotionality
+- Analysis of the relationship between countries' characteristics and sentiment and emotionality .
 
+## Description of the web use
+![Alt text](images/top_countries_use.png)
 	
-| country_code | count | percentage
+| country | count | percentage
 |--------------|-------|----------
 USA | 69976 | 46.81
 GBR | 13175 | 8.81
@@ -39,7 +51,7 @@ RUS | 1339 | 0.90
 BRA | 1293 | 0.86
 
 
-
+![Alt text](images/lang_english.png)
 
 | Language | Count | Percentage
 |----------|-------|----------
@@ -54,13 +66,33 @@ et | 272 | 0.18
 da | 217 | 0.15
 ru | 202 | 0.14
 
+## Description of the discourse
+![Alt text](images/GlobalCloud.png)
 
-![Alt text](images/lang_english.png)
+
 ![Alt text](images/Sentiment.png)
+
 ![Alt text](images/Sentiment_no_neutral.png)
 
 ![Alt text](images/Sentiment_no_neutral_no_outliers.png)
 
+
+![Alt text](images\Characters.png)
+
+![Alt text](images\Characters_no_outliers.png)
+
+
+![Alt text](images\Emotionality.png)
+
+![Alt text](images\Emotionality_no_outliers.png)
+
+## Analysis of the discourse and countries' characteristics
+H0:
+
+H1:
+### Coutries characteristics (independent variables):
+
+### Discourse characteristics (dependent variables):
 
 
 
