@@ -1,8 +1,0 @@
-**/.DS_Store
-**/*.ipynb_checkpoints/
-**/__pycache__
-.vscode
-.gitignore
-**/.streamlit/secrets.toml
-**/.env
-**/data
