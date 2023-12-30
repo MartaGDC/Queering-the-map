@@ -1,6 +1,8 @@
 # Final Project
 [GitHub](https://github.com/MartaGDC)
 
+[Streamlit]()
+
 
 ## Introduction
 In 2017 Lucas LaRochelle created Queering The Map as part of a class project. This is a "community generated counter-mapping platform for digitally archiving LGBTQ2IA+ experience in relation to physical space", whose purpose is provide a safe space for queer people around the globe to share experiences anonimously, and link them to a physical space.
@@ -74,7 +76,7 @@ The purpose of this project is to give some insights in the process of answering
 
 - **H1**: These characteristics affect the discurse shared on the web.
 
-After a quick bibliographic research about country determinants for stigma and discrimination related to gender identity, sexual orientation and gender identity[1], 18 different variables were collected[2]-[3]:
+After a quick bibliographic research about country determinants for stigma and discrimination related to sexual orientation and gender identity[1], 18 different variables were collected[2]-[3]:
 - Region:
     - East Asia & Pacific
     - Europe & Central Asia
@@ -124,7 +126,7 @@ $$ Standard\ length = {Number\ of\ characters \over Maximum\ number\ of\ charact
 
 $$ Emotionality = Standard\ length * (|Sentiment| + 1) $$
 
-The relationship of each of the variables and the discourse was evaluated on their own, and as a whole using linear regres
+The relationship of each of the variables and the discourse was evaluated on their own, and as a whole, using linear regression.
 
 [1]: <https://doi.org/10.1093/eurpub/cky023> "E. Lamontagne, M. d'Elbée, M. W. Ross, A. Carroll, A. du Plessis, L. Loures. A socioecological measurement of homophobia for all countries and its public health impact. European Journal of Public Health. 28.5 (2018): 967-972."
 [2]: <https://data.worldbank.org/> "World Bank"
@@ -233,6 +235,7 @@ This would be the distribution without the outliers with an emotionality value h
 ## Analysis of the discourse and countries' characteristics
 
 ### Relationship between every characteristic of the countries and the discourse
+The folowing table shows the coefficients for those variables that show a statistically significant relationship with the discourse sentiment or emotionality, and the p-values for all the variables included.
 
 |                                | *Sentiment*                     |              | | *Emotionality*                  |             |
 ---------------------------------|:-------------------------------:|-------------:|-|:-------------------------------:|------------:
@@ -265,12 +268,12 @@ Upper middle income              | 0.014205                        | 0.007249   
 Lower middle income              | -                               | 0.574642     | | 0.003837                        | 0.000035
 Low income                       | 0.074843                        | 0.024217     | | 0.008464                        | 0.028941
 **Censorship**, Imprisonment as punishment (ref)
-No censorship                    | -0.029614                       | 0.02316450   | | -0.029614                       | 0.02316450
-Varies by region                 | -                               | 0.05982512   | | -                               | 0.05982512
-Ambiguous                        | -                               | 0.1345074    | | -                               | 0.1345074
-Other punishment                 | -                               | 0.4718123    | | -                               | 0.4718123
-Fine as punishment               | -                               | 0.7742703    | | -                               | 0.7742703
-State-enforced                   | -                               | 0.6813948    | | -                               | 0.6813948
+No censorship                    | -0.029614                       | 0.02316450   | | -                               | 0.05776440
+Varies by region                 | -                               | 0.05982512   | | -0.003578                       | 0.01821738
+Ambiguous                        | -                               | 0.1345074    | | -                               | 0.07393498
+Other punishment                 | -                               | 0.4718123    | | -                               | 0.4946909
+Fine as punishment               | -                               | 0.7742703    | | -                               | 0.8349811
+State-enforced                   | -                               | 0.6813948    | | -                               | 0..708714
 **Gender marker change**, Legal, surgery not required (ref)
 Legal, but requires surgery      | -                               | 0.106977     | |  0.002478                       | 0.000528
 Varies by region                 | -                               | 0.939524     | | -                               | 0.160484
@@ -278,6 +281,8 @@ Ambiguous                        | 0.020352                        | 0.022415   
 Illegal                          | -                               | 0.229530     | | 0.002533                        | 0.012426
 
 ### Relationship between all the characteristics of the countries and the discourse
+The folowing table shows the coefficients for those variables that show a statistically significant relationship with the discourse sentiment or emotionality when including all the variables in the model, and their p-values.
+
 |                                | *Sentiment*                     |              | | *Emotionality*                  |             |
 ---------------------------------|:-------------------------------:|-------------:|-|:-------------------------------:|------------:
 **Variables**                    | **Coefficients if significant** | **p-value**  | | **Coefficients if significant** | **p-value**
@@ -318,3 +323,22 @@ Legal, surgery not required      | -0.03134414                     | 0.01960927 
 Legal, but requires surgery      | -                               | 0.4242546    | | -0.007699718                    | 6.881194e-07
 Varies by region                 | -0.04647625                     | 0.01220829   | | -0.01050085                     | 2.009555e-06
 Ambiguous                        | -                               | 0.8860066    | | -                               | 0.3327387
+
+
+A more positive sentiment was related to a higher political stability, better legal consideration of same-sex sexual acts and the recognition of hate crimes. The sentiment was significantly better in Sub-Saharan Africa in respect to East Asia & Pacific, and in countries were censorship of LGBTQ issues is done through imprisonment or there are other punishments than imprisonment or fines.
+
+A more negative sentiment was related to a better ARV therapy and UHC coverage. It was worse in Latin America & Caribbean in respect to East Asia & Pacific, in low income countries in respect to high income conuntries, if there is censorship of LGBTQ issues done through imprisonment or other punishments than imprisonment or fines, and if gender chance is legal or varies in respect to it being illegal. Some of these results were very unexpected.
+
+A more intense emoitionality was related to a higher political stability, higher proportion of female seats in national parliament, higher GDP and better protection against hate crimes. The emotionality was significantly more intense in Latin America & Caribbean in respect to East Asia & Pacific, in lower middle income countries in respect to high income ocuntries, and in countries with no censorship, variable or state-enforced in respect to imprisonment as punishment.
+
+A less intense emotionality was related to a better ARV therapy coverage, higher health expenditure and higher LGBT+ rights index. It is also less intense in Europe & Central Asia and Middle East & North Africa in respect to East Asia & Pacific, in low income countries in respect to high income countries, if there is censorship punish with other than fines or imprisonment, and if gender change is legal or varies in respect to it being illegal.
+
+
+## Conclusions
+The most repeated words are love and first, it seems that this web is mainly used to share first experiences or coming out stories.
+
+The nltk Python library shows limitations to provide a reliable sentiment. To evaluate intensity the length of the commments can be used, or a related metric to include the weigh of the sentiment detected.
+
+Countries with less web use usually have “worst” country indicators, but these don't necessarily translate in a number emotionality or lower sentiment.
+
+
