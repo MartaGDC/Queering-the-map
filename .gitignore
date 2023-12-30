@@ -5,5 +5,4 @@
 .gitignore
 **/.streamlit/secrets.toml
 **/.env
-**/.sql
 **/data
