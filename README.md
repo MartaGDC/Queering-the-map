@@ -1,7 +1,7 @@
 # Final Project
 [GitHub](https://github.com/MartaGDC)
 
-[Streamlit]()
+[Streamlit](https://ironhacking.streamlit.app/)
 
 
 ## Introduction
@@ -69,7 +69,7 @@ The purpose of this project is to give some insights in the process of answering
     - Web
     - Discourse
 - Analysis of the relationship between countries' characteristics and sentiment and emotionality.
-- [Strealit page]() creation.
+- [Strealit page](https://ironhacking.streamlit.app/) creation.
 
 ### Analysis
 - **H0**: The characteristics of the context in each country don't interfere with the nature of the discurse shared on the web.
@@ -198,7 +198,7 @@ To create the wordclouds, no stop words were considered as the visual results we
 
 ![Alt text](images/GlobalCloud.png)
 
-In the [streamlit]() page, it is possible to explore the wordclouds for every country.
+In the [streamlit](https://ironhacking.streamlit.app/) page, it is possible to explore the wordclouds for every country.
 
 ### Sentiment
 As you can ssee in the graph there are a lot of neutral values (16.84%) for the sentiment using the nltk library in Python.
