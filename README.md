@@ -11,7 +11,7 @@ The information of the page arises this question:
 
 **<p style="text-align: center;">How does race, gender, sexuality, citizenship, ability, and class affect the ways in which we relate to, move through, and create space?</p>**
 
-The purpose of this project is to give some insights in the process of answering this question, respecting the anonimity of the community involved, through the analysis of the discourse of the shared experiences and it's relationship with the physical space defined by each country.
+The purpose of this project is to give some insights in the process of answering this question, respecting the anonimity of the community involved, through the analysis of the discourse of the shared experiences and its relationship with the physical space defined by each country.
 
 ### Research questions:
 - How is the web used?
