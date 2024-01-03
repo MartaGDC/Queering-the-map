@@ -11,7 +11,7 @@ The information of the page arises this question:
 
 **<p style="text-align: center;">How does race, gender, sexuality, citizenship, ability, and class affect the ways in which we relate to, move through, and create space?</p>**
 
-The purpose of this project is to give some insights in the process of answering this question, respecting the anonimity of the community involved, thorugh the analysis of the discourse of the shared experiences and it's relationship with the physical space defined by each country.
+The purpose of this project is to give some insights in the process of answering this question, respecting the anonimity of the community involved, through the analysis of the discourse of the shared experiences and it's relationship with the physical space defined by each country.
 
 ### Research questions:
 - How is the web used?
@@ -116,7 +116,7 @@ After a quick bibliographic research about country determinants for stigma and d
     - Gender marker change
     - Hate crimes based on sexual orientation or gender identity are an aggravating circumstance
 
-The values considered were the mean between 2017 and present time, considering that the webpage started in 2017 and there is no data available about the dates of the comments. In case of missing values, these were imputed calculating the mean value for each variable missing grouping by region and income group, as these were the ones that seem more associated with the continuous variables (no statistical test was done to check this hypothesis).
+The values considered were the mean between 2017 and present time, considering that the webpage started in 2017 and there is no data available about the dates of the comments. In case of missing values, these were imputed calculating the mean value for each variable missing, grouping by region and income group, as these were the ones that seemed more associated with the continuous variables (no statistical test was done to check this hypothesis).
 
 The nature of the discurse was defined by the sentiment determined with the nltk Python library, and the emotionality.
 
@@ -160,7 +160,7 @@ The language of the comments was detected using the library langid from Python.
 
 ![Alt text](images/lang_english.png)
 
-As more than 95% of the comments were in english according to this library, and there were issues translating, those in a different language weren't translated.
+As more than 95% of the comments were in English according to this library, and there were issues translating, those in a different language weren't translated.
 
 | Language | Count  | Percentage |
 |----------|-------:|-----------:|
@@ -179,7 +179,7 @@ As more than 95% of the comments were in english according to this library, and 
 ## Description of the discourse
 
 ### Word count
-It was done only considering those comment in english. Using the library nltk.corpus, and the stop words present by default in it, the most repeated english words in the world were "first", "love" and "time".
+It was done only considering those comment in English. Using the library nltk.corpus, and the stop words present by default in it, the most repeated English words in the world were "first", "love" and "time".
 
 | Top words | Count  |
 |-----------|-------:|
@@ -201,33 +201,33 @@ To create the wordclouds, no stop words were considered as the visual results we
 In the [streamlit](https://ironhacking.streamlit.app/) page, it is possible to explore the wordclouds for every country.
 
 ### Sentiment
-As you can ssee in the graph there are a lot of neutral values (16.84%) for the sentiment using the nltk library in Python.
+As you can see in the graph, there were a lot of neutral values (16.84%) for the sentiment using the nltk library in Python.
 
 ![Alt text](images/Sentiment.png)
 
-If we ignore that 16.84% of neutral values, this is the distribution of sentiment in the discourse shown in the web. It is clear that most of the comments show a positive sentiment.
+If we ignore those 16.84% of neutral values, this was the distribution of sentiment in the discourse shown in the web. It is clear that most of the comments show a positive sentiment.
 
 ![Alt text](images/Sentiment_no_neutral.png)
 
-There are negative ouliers below the sentiment value of -0.5576. This would be distriution without neutral and outlier values.
+There were negative ouliers below the sentiment value of -0.5576. This would have been the distriution without neutral and outlier values.
 
 ![Alt text](images/Sentiment_no_neutral_no_outliers.png)
 
 ### Length of the characters
-This is the distribution of the number of characters per comnent in the web. There are some few comments with a lot of characters:
+This was the distribution of the number of characters per comnent in the web. There were some few comments with a lot of characters:
 
 ![Alt text](images\Characters.png)
 
-There are 5.64% of outliers. This would be the distribution without condidering the outliers with more than 413 characters.
+There weree 5.64% of outliers. This would have been the distribution without condidering the outliers with more than 413 characters.
 
 ![Alt text](images\Characters_no_outliers.png)
 
 ### Emotionality
-The distribution of emotionality is similar to the distribution of length but more homogenous, showing 6.31% of outliers
+The distribution of emotionality was similar to the distribution of length but more homogenous, showing 6.31% of outliers
 
 ![Alt text](images\Emotionality.png)
 
-This would be the distribution without the outliers with an emotionality value higer than 0.1235.
+This would have been the distribution without the outliers with an emotionality value higer than 0.1235.
 
 ![Alt text](images\Emotionality_no_outliers.png)
 
@@ -235,7 +235,7 @@ This would be the distribution without the outliers with an emotionality value h
 ## Analysis of the discourse and countries' characteristics
 
 ### Relationship between every characteristic of the countries and the discourse
-The folowing table shows the coefficients for those variables that show a statistically significant relationship with the discourse sentiment or emotionality, and the p-values for all the variables included.
+The folowing table shows the coefficients for those variables that showed a statistically significant relationship with the discourse sentiment or emotionality, and the p-values for all the variables included.
 
 |                                | *Sentiment*                     |              | | *Emotionality*                  |             |
 ---------------------------------|:-------------------------------:|-------------:|-|:-------------------------------:|------------:
@@ -281,7 +281,9 @@ Ambiguous                        | 0.020352                        | 0.022415   
 Illegal                          | -                               | 0.229530     | | 0.002533                        | 0.012426
 
 ### Relationship between all the characteristics of the countries and the discourse
-The folowing table shows the coefficients for those variables that show a statistically significant relationship with the discourse sentiment or emotionality when including all the variables in the model, and their p-values.
+The characteristics of the countries barely explained the variability of the discourse: when including all the countries variables, the model had a R-squared of 0.002 for sentiment and of 0.005 for emotionality.
+
+The folowing table shows the coefficients for those variables that showed a statistically significant relationship with the discourse sentiment or emotionality when including all the variables in the model, and their p-values.
 
 |                                | *Sentiment*                     |              | | *Emotionality*                  |             |
 ---------------------------------|:-------------------------------:|-------------:|-|:-------------------------------:|------------:
@@ -335,10 +337,10 @@ A less intense emotionality was related to a better ARV therapy coverage, higher
 
 
 ## Conclusions
-The most repeated words are love and first, it seems that this web is mainly used to share first experiences or coming out stories.
+The most repeated words were love and first, it seems that this web is mainly used to share first experiences or coming out stories.
 
-The nltk Python library shows limitations to provide a reliable sentiment. To evaluate intensity the length of the commments can be used, or a related metric to include the weigh of the sentiment detected.
+The nltk Python library showed limitations to provide a reliable sentiment. To evaluate intensity the length of the commments can be used, or a related metric to include the weight of the sentiment detected.
 
-Countries with less web use usually have “worst” country indicators, but these don't necessarily translate in a number emotionality or lower sentiment.
+Countries with less web use usually had “worst” country indicators, but these didn't necessarily translate in a number emotionality or lower sentiment.
 
 
