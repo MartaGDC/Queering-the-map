@@ -176,6 +176,12 @@ As more than 95% of the comments were in English according to this library, and 
 | ru       | 202    | 0.14       |
 
 
+### Geographic clusters
+To predict the geographic clusters for each country, a sample with the top ten countries in web use helped calculate the number of clusters in each country. Using the elbow method, a maximum of 5 to 6 clusters was considered to predict the clusters for every country, finally varying from one to six.
+
+The final prediction of the use for geographic clusters is available on the [streamlit](https://ironhacking.streamlit.app/) page.
+
+
 ## Description of the discourse
 
 ### Word count
