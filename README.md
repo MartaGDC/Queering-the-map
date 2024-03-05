@@ -86,12 +86,12 @@ After a quick bibliographic research about country determinants for stigma and d
     - South Asia
     - Sub-Saharan Africa
 - Political context:
-    - Political stability and absence of violence/terrorism:
+    - Political stability and absence of violence/terrorism[4]:
         - Measured as Percentile Rank
-    - Rule of Law:
+    - Rule of Law[5]:
         - Measured as Percentile Rank
-    - Proportion of seats held by women in national parliaments (%)
-    - Voice and Accountability:
+    - Proportion of seats held by women in national parliaments (%)[6]
+    - Voice and Accountability[7]:
         - Measured as Percentile Rank
 - Economic context:
     - Income group:
@@ -99,17 +99,17 @@ After a quick bibliographic research about country determinants for stigma and d
         - Upper middle income
         - Lower middle income
         - Low income
-    - GDP:
+    - GDP[8]:
         - Measure as GDP (current US$)
 - Education context:
-    - Children out of school (% of primary school age)
-    - Current education expenditure, total (% of total expenditure in public institutions)
-    - Literacy rate, adult total (% of people ages 15 and above)
+    - Children out of school (% of primary school age)[9]
+    - Current education expenditure, total (% of total expenditure in public institutions)[10]
+    - Literacy rate, adult total (% of people ages 15 and above)[11]
 - Health context:
-    - Antiretroviral therapy coverage (% of people living with HIV)
-    - Current health expenditure (% of GDP)
-    - Universal Health Care (UHC) service coverage index
-- LGBT+ context:
+    - Antiretroviral therapy coverage (% of people living with HIV)[12]
+    - Current health expenditure (% of GDP)[13]
+    - Universal Health Care (UHC) service coverage index[14]
+- LGBT+ context[3]:
     - LGBT+ rights index
     - Same-sex sexual acts illegal
     - Censorship of LGBT issues
@@ -131,6 +131,19 @@ The relationship of each of the variables and the discourse was evaluated on the
 [1]: <https://doi.org/10.1093/eurpub/cky023> "E. Lamontagne, M. d'Elbée, M. W. Ross, A. Carroll, A. du Plessis, L. Loures. A socioecological measurement of homophobia for all countries and its public health impact. European Journal of Public Health. 28.5 (2018): 967-972."
 [2]: <https://data.worldbank.org/> "World Bank"
 [3]: <https://ourworldindata.org/lgbt-rights> "LGBT+ Rights"
+[4]: <https://data.worldbank.org/indicator/PV.PER.RNK> "Political Stability and Absence of Violence/Terrorism: Percentile Rank"
+[5]: <https://data.worldbank.org/indicator/RL.PER.RNK> "Rule of Law: Percentile Rank"
+[6]: <https://data.worldbank.org/indicator/SG.GEN.PARL.ZS> "Proportion of seats held by women in national parliaments (%)"
+[7]: <https://data.worldbank.org/indicator/VA.PER.RNK> "Voice and Accountability: Percentile Rank"
+[8]: <https://data.worldbank.org/indicator/NY.GDP.MKTP.CD> "GDP (current US$)"
+[9]: <https://data.worldbank.org/indicator/SE.PRM.UNER.ZS> "Children out of school (% of primary school age"
+[10]: <https://data.worldbank.org/indicator/SE.XPD.CTOT.ZS> "Current education expenditure, total (% of total expenditure in public institutions)"
+[11]: <https://data.worldbank.org/indicator/SE.ADT.LITR.ZS> "Literacy rate, adult total (% of people ages 15 and above)"
+[12]: <https://data.worldbank.org/indicator/SH.HIV.ARTC.ZS> "Antiretroviral therapy coverage (% of people living with HIV)"
+[13]: <https://data.worldbank.org/indicator/SH.XPD.CHEX.GD.ZS> "Current health expenditure (% of GDP)"
+[14]: <https://data.worldbank.org/indicator/SH.UHC.SRVS.CV.XD> "UHC service coverage index"
+
+
 
 
 ## Description of the web use
