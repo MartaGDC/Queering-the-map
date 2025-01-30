@@ -69,7 +69,7 @@ The purpose of this project is to give some insights in the process of answering
     - Web
     - Discourse
 - Analysis of the relationship between countries' characteristics and sentiment and emotionality.
-- [Strealit page](https://ironhacking.streamlit.app/) creation.
+- [Streamlit page](https://ironhacking.streamlit.app/) creation.
 
 ### Analysis
 - **H0**: The characteristics of the context in each country don't interfere with the nature of the discurse shared on the web.
@@ -235,20 +235,20 @@ There were negative ouliers below the sentiment value of -0.5576. This would hav
 ### Length of the characters
 This was the distribution of the number of characters per comnent in the web. There were some few comments with a lot of characters:
 
-![Alt text](images\Characters.png)
+![Alt text](images/Characters.png)
 
 There weree 5.64% of outliers. This would have been the distribution without condidering the outliers with more than 413 characters.
 
-![Alt text](images\Characters_no_outliers.png)
+![Alt text](images/Characters_no_outliers.png)
 
 ### Emotionality
 The distribution of emotionality was similar to the distribution of length but more homogenous, showing 6.31% of outliers
 
-![Alt text](images\Emotionality.png)
+![Alt text](images/Emotionality.png)
 
 This would have been the distribution without the outliers with an emotionality value higer than 0.1235.
 
-![Alt text](images\Emotionality_no_outliers.png)
+![Alt text](images/Emotionality_no_outliers.png)
 
 
 ## Analysis of the discourse and countries' characteristics
